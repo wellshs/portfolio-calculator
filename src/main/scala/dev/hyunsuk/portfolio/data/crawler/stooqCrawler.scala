@@ -14,6 +14,10 @@ object stooqCrawler extends AbstractCrawler {
     fetchData(createURLByCode(code))
   }
 
+  def fetchMultipleData(urls: Iterable[String]) = {
+    urls.foreach(fetchData)
+  }
+
   override def processData(dataSource: Source): String = {
     val reader = CSVReader.open(dataSource)
 

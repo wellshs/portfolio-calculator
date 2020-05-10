@@ -22,6 +22,7 @@ abstract class AbstractCrawler {
   //  crawler가 가져야 하는 기본적인 속성을 정의합니다.
   //  여러 사이트에 대해서 crawler를 정의할 수 있으므로, 공동퇸 속성을 만들어 둡니다.
   def fetchData(url: String): String = {
+    println(s"fetching data from url : $url")
     val cachedFilePath = dataFolder + md5HashString(url)
     if (Files.exists(Paths.get(cachedFilePath))) {
       val cachedFile = Source.fromFile(cachedFilePath)
